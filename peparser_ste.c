@@ -36,7 +36,21 @@ void PEParsingAndPrint(char* File_Path)
 	}
 
 	// Start your Code
+<<<<<<< HEAD
+
+	fread(&lpMapView_IDH, sizeof(IMAGE_DOS_HEADER), 1, ifp);
+	pIDH=&lpMapView_IDH;
+
+	fseek(ifp, pIDH->e_lfanew, SEEK_SET);
+	fread(&lpMapView_INH, sizeof(IMAGE_NT_HEADERS), 1, ifp);
+	pINH=&lpMapView_INH;
 	
+	PIMAGE_SECTION_HEADER pSH =NULL;
+	IMAGE_SECTION_HEADER lpMapView_ISH;
+	//DWORD pOptional
+=======
+	
+>>>>>>> 3b21cc84da75b65a119f6af2c48fdec699c1e561
 	// End Of Code
 
 	printf("--------------- IMAGE_FILE_HEADERS ---------------\n");
@@ -47,6 +61,10 @@ void PEParsingAndPrint(char* File_Path)
 	printf("NumberOfSymbols: %8p\n",pINH->FileHeader.NumberOfSymbols);
 	printf("SizeOfOptionalHeader: %8p\n",pINH->FileHeader.SizeOfOptionalHeader);
 	printf("Characteristics: %8p\n",pINH->FileHeader.Characteristics);
+<<<<<<< HEAD
+	/*
+=======
+>>>>>>> 3b21cc84da75b65a119f6af2c48fdec699c1e561
 	printf("--------------- IMAGE_OPTIONAL_HEADER ---------------\n");
 	printf("Magic:%8p\n",pINH->OptionalHeader.Magic);
 	printf("MajorLinkerVersion:%8p\n",pINH->OptionalHeader.MajorLinkerVersion);
@@ -78,6 +96,10 @@ void PEParsingAndPrint(char* File_Path)
 	printf("SizeOfHeapCommit:%8p\n",pINH->OptionalHeader.SizeOfHeapCommit);
 	printf("LoaderFlags:%8p\n",pINH->OptionalHeader.LoaderFlags);
 	printf("NumberOfRvaAndSizes:%8p\n",pINH->OptionalHeader.NumberOfRvaAndSizes);
+<<<<<<< HEAD
+	*/
+=======
+>>>>>>> 3b21cc84da75b65a119f6af2c48fdec699c1e561
 
 	fclose(ifp);
 }
